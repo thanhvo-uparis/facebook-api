@@ -2,11 +2,10 @@ import * as PostController from '../models/post.model';
 
 export const createOne = async (request, response) => {
   const { user } = request;
-  const { content, title } = request.body;
+  const { message } = request.body;
 
   const post = await PostController.createOne({
-    content,
-    title,
+    message,
     authorId: user.id,
   });
 
@@ -30,12 +29,11 @@ export const findAll = async (_request, response) => {
 export const updateOne = async (request, response) => {
   const { user } = request;
   const { id } = request.params;
-  const { content, title } = request.body;
+  const { message } = request.body;
 
   const post = await PostController.updateOne({
     id: Number(id), 
-    content,
-    title,
+    message,
     authorId: user.id,
   });
 

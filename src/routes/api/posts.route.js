@@ -6,7 +6,7 @@ const api = Router();
 api.post('/', PostController.createOne);
 api.get('/', PostController.findAll);
 api.get('/:id', PostController.findOneById);
-api.put('/:id', PostController.updateOne);
+api.patch('/:id', PostController.updateOne);
 api.delete('/:id', PostController.deleteOne);
 
 export default api;

@@ -1,11 +1,10 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-export const createOne = async ({ content, title, authorId }) => {
+export const createOne = async ({ message, authorId }) => {
   return prisma.post.create({
     data: {
-      content,
-      title,
+      message,
       Author: {
         connect: {
           id: authorId,
@@ -15,14 +14,13 @@ export const createOne = async ({ content, title, authorId }) => {
   });
 }
 
-export const updateOne = async ({ id, content, title, authorId }) => {
+export const updateOne = async ({ id, message, authorId }) => {
   return prisma.post.update({
     where: {
-      id,
+      id
     },
     data: {
-      title,
-      content,
+      message,
     },
   });
 }
